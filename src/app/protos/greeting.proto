@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package greeting;
+
+service Greeter {
+  rpc Greet (HelloRequest) returns (HelloReply);
+  rpc CreateGreeting (CreateGreetingRequest) returns (GreetingReply);
+  rpc ReadGreetings (ReadGreetingsRequest) returns (ReadGreetingsReply);
+  rpc UpdateGreeting (UpdateGreetingRequest) returns (GreetingReply);
+  rpc DeleteGreeting (DeleteGreetingRequest) returns (DeleteGreetingReply);
+  rpc GetGreetingById (GetGreetingByIdRequest) returns (GreetingReply); 
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+
+message CreateGreetingRequest {
+  string name = 1;
+}
+
+message GreetingReply {
+  string id = 1;
+  string message = 2;
+}
+
+message ReadGreetingsRequest {}
+
+message ReadGreetingsReply {
+  repeated GreetingReply greetings = 1;
+}
+
+message UpdateGreetingRequest {
+  string id = 1;
+  string name = 2;
+}
+
+message DeleteGreetingRequest {
+  string id = 1;
+}
+
+message DeleteGreetingReply {
+  string id = 1;
+  string message = 2;
+}
+
+message GetGreetingByIdRequest {
+  string id = 1;
+}

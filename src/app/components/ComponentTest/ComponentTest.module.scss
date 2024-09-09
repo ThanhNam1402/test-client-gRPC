@@ -1,0 +1,14 @@
+.wrap {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & h1 {
+        background: linear-gradient(90deg, #2DCA36 10%, #ED1B26 50%, #C41C8B 10%);
+        background-clip: text;
+        color: transparent;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+}

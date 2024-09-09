@@ -1,0 +1,5 @@
+node_modules/
+dist/
+src/app/protos/
+src/app/services/greeting/protos/
+

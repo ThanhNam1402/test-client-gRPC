@@ -1,0 +1,43 @@
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff;
+    padding: 0 20px;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+
+}
+
+.error {
+    font-size: 20px;
+    font-weight: 400;
+    background: linear-gradient(90deg, #2DCA36 0%, #ED1B26 25%, #C41C8B 40%);
+    background-clip: text;
+    color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.message {
+    font-size: 14px;
+    color: #a9a9a9;
+
+    & a {
+        color: #2DCA36;
+        text-decoration: none;
+    }
+}
+
+.line {
+    height: 14px;
+    width: 1px;
+    margin: 0 10px;
+    background-color: #a9a9a9;
+
+
+}

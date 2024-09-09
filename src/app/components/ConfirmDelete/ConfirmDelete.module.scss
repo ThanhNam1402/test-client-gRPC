@@ -1,0 +1,58 @@
+.dialog {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    width: 400px;
+    z-index: 100000;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.8);
+    display: grid;
+    place-items: center;
+}
+
+.heading {
+    font-size: 20px;
+}
+
+.desc {
+    margin-top: 15px;
+    color: #252525;
+}
+
+.action {
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+
+    & button {
+        padding: 10px 20px;
+        border-radius: 4px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    & .cancel {
+        color: #000;
+        background-color: #d5d5d5;
+
+        &:hover {
+            background-color: #c5c5c5;
+        }
+
+    }
+
+    & .confirm {
+        background-color: #d13943;
+        color: #fff;
+
+        &:hover {
+            background-color: #c12f33;
+        }
+    }
+}

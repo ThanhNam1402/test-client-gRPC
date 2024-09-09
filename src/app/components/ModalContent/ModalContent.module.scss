@@ -1,0 +1,19 @@
+.dialog {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    width: 400px;
+    z-index: 100000;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.8);
+    display: grid;
+    place-items: center;
+}
+
+.heading {
+    font-size: 20px;
+}
