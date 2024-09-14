@@ -83,21 +83,23 @@ export default function GrpcPage() {
     // Handle edit greeting
     const openEditGreeting = (id: string) => {
         greetingIdRef.current = id
+        GetOneMutaion.mutate(id)
+
         setOpenEdit(true)
+
+        // await new Promise((resolve) => setTimeout(resolve, 2000))
     }
 
-    // get one greeting
-    const getOneGreeting = useQuery({
-        queryKey: ['greeting', greetingIdRef.current],
-        enabled: greetingIdRef.current !== '',
-        queryFn: async () =>
-            await greetingService.getById(greetingIdRef.current as string).then(async (res) => {
-                await new Promise((resolve) => setTimeout(resolve, 2000))
-                if (res) {
-                    setValueEdit(res.getMessage())
-                    return res
-                }
-            })
+    // getOne greeting mutation
+    const GetOneMutaion = useMutation({
+        mutationFn: (id: string) => greetingService.getById(id as string),
+        onSuccess: (res) => {
+            console.log('res add', res)
+            setValueEdit(res.getMessage())
+        },
+        onError: (err) => {
+            toast.error(err.message || 'Failed to update greeting')
+        }
     })
 
     // handle update greeting
@@ -125,7 +127,7 @@ export default function GrpcPage() {
             <ModalContent title='Edit user' isOpen={openEdit} setIsOpen={setOpenEdit}>
                 <UpdateGreeting
                     valueEdit={valueEdit}
-                    isLoading={getOneGreeting.isLoading}
+                    isLoading={false}
                     onUpdateGreeting={handleUpdateGreeting}
                     setOpenEdit={setOpenEdit}
                 />

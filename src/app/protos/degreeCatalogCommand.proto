@@ -1,0 +1,38 @@
+﻿syntax = "proto3";
+import "google/protobuf/wrappers.proto";
+option csharp_namespace = "DegreeCatalogGrpc";
+package DegreeCatalog;
+
+
+service DegreeCatalogService {
+  rpc AddDegreeCatalog(AddDegreeCatalogRequest) returns (CommonResult);
+  rpc UpdateDegreeCatalog(UpdateDegreeCatalogRequest) returns (CommonResult);
+  rpc DeleteDegreeCatalog(DeleteDegreeCatalogRequest) returns (CommonResult);
+
+}
+
+message CommonResult {
+    int32 statusCode = 1;
+    bool isSuccess = 2;
+    optional string data = 3;
+    optional string dataType = 4;
+    optional string messageCode = 5;
+    optional Error error = 6;
+}
+message Error{
+    repeated string details = 1;
+    string stackTrace = 2;
+}
+
+message AddDegreeCatalogRequest {
+  optional google.protobuf.StringValue DegName = 1;
+}
+
+message UpdateDegreeCatalogRequest {
+  optional google.protobuf.Int32Value Id = 1;
+  optional google.protobuf.StringValue DegName = 2;
+}
+message DeleteDegreeCatalogRequest {
+  optional google.protobuf.Int32Value Id = 1;
+}
+

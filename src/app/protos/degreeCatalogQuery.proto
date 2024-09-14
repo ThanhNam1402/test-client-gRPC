@@ -1,0 +1,16 @@
+﻿syntax = "proto3";
+import "result.proto";
+import "google/protobuf/wrappers.proto";
+option csharp_namespace = "DegreeCatalogGrpc";
+package DegreeCatalog;
+
+service DegreeCatalogService {
+    rpc GetDegreeCatalog(GetDegreeCatalogRequest) returns (CommonResult);
+    rpc GetAllDegreeCatalogs(GetAllDegreeCatalogsRequest) returns (CommonResult);
+}
+
+message GetDegreeCatalogRequest{
+    optional google.protobuf.Int32Value Id = 1;
+}
+message GetAllDegreeCatalogsRequest {}
+

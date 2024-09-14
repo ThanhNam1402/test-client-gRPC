@@ -56,6 +56,11 @@ export const greetingService = {
     delete: async (id: string): Promise<DeleteGreetingReply> => {
         const request = new DeleteGreetingRequest()
         request.setId(id)
+
+        console.log(request.toObject())
+
+        console.log(request)
+
         return new Promise((resolve, reject) => {
             client.deleteGreeting(request, {}, (err, response) => {
                 if (err) {
